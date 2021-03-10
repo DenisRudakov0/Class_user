@@ -17,7 +17,7 @@ class User():
         elif rank_list[rank_list.index(lv)] > user.rank:
             user.progress += (10 * (lv - user.rank) * (lv - user.rank))
         if user.progress >= 100:
-            user.rank += user.progress // 100
+            user.rank = rank_list[rank_list.index(user.rank) + (user.progress // 100)]
             user.progress = user.progress % 100
         return user.rank
     
@@ -25,6 +25,7 @@ user = User()
 user.rank = -8
 user.progress = 0
 print(User.inc_progress(-7))
+print(User.inc_progress(-5))
 
 
     
