@@ -17,12 +17,12 @@ class User():
             if user.rank != 8:
                 user.rank = rank_list[rank_list.index(user.rank) + (user.progress // 100)]
                 user.progress = user.progress % 100
-        return user.rank
+        return user.progress
     
 user = User()
 user.rank = -8
 user.progress = 0
-print(User.inc_progress(-7))
+print(User.inc_progress(-8))
 print(User.inc_progress(-5))
 
 
