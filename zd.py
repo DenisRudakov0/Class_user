@@ -18,7 +18,7 @@ class User():
         
         if user.progress >= 100:
             if user.rank != 8:
-                if rank_list.index(user.rank) + (user.progress // 100) > len(rank_list):
+                if rank_list.index(user.rank) + (user.progress // 100) > len(rank_list) - 1:
                     user.rank = 8
                 else:
                     user.rank = rank_list[rank_list.index(user.rank) + (user.progress // 100)]
@@ -28,7 +28,7 @@ class User():
 user = User()
 user.rank = -8
 user.progress = 0
-print(User.inc_progress(1))
+print(User.inc_progress(6))
 
 
 
