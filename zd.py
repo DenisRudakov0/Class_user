@@ -7,12 +7,15 @@ class User():
 
     def inc_progress(lv):
         rank_list = [i for i in range(-8, 9) if i != 0]
-        if rank_list[rank_list.index(lv)] > user.rank and user.rank != 8:
-            user.progress += (10 * (rank_list.index(lv) - rank_list.index(user.rank)) * (rank_list.index(lv) - rank_list.index(user.rank)))
-        elif rank_list[rank_list.index(lv)] == user.rank - 1:
-            user.progress += 1
-        elif rank_list[rank_list.index(lv)] == user.rank:
+        if user.rank == lv:
             user.progress += 3
+        elif user.rank - 1 == lv:
+            user.progress += 1
+        elif user.rank < lv:
+            user.progress = 10 * (rank_list.index(lv) - rank_list.index(user.rank)) * (rank_list.index(lv) - rank_list.index(user.rank)) 
+        else:
+            user.progress += 0
+        
         if user.progress >= 100:
             if user.rank != 8:
                 if rank_list.index(user.rank) + (user.progress // 100) > len(rank_list):
@@ -25,7 +28,7 @@ class User():
 user = User()
 user.rank = -8
 user.progress = 0
-print(User.inc_progress(8))
+print(User.inc_progress(1))
 
 
 
